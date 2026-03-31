@@ -1,25 +1,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { which } from './which.js';
 
 const execFileAsync = promisify(execFile);
-
-const REQUIRED_BINARIES = ['xdotool', 'scrot', 'xrandr'] as const;
-
-export async function validateDependencies(): Promise<void> {
-  const missing: string[] = [];
-
-  for (const bin of REQUIRED_BINARIES) {
-    const found = await which(bin);
-    if (!found) missing.push(bin);
-  }
-
-  if (missing.length > 0) {
-    throw new Error(
-      `Missing system dependencies: ${missing.join(', ')}. Install with: sudo apt install ${missing.join(' ')}`
-    );
-  }
-}
 
 export async function exec(
   command: string,

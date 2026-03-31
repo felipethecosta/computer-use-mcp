@@ -1,7 +1,7 @@
 {
   "name": "computer-use-mcp",
   "version": "1.0.0",
-  "description": "MCP server for computer use on Linux — screenshots, clicks, keyboard, mouse control",
+  "description": "MCP server for computer use automation — screenshots, clicks, keyboard, mouse control (Linux & Windows)",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
